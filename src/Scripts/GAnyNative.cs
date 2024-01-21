@@ -68,8 +68,11 @@ namespace Gx
         [DllImport(libName, EntryPoint = "ganyDestroy")]
         public static extern void CGAnyDestroy(long any);
 
-        [DllImport(libName, EntryPoint = "ganyEnvironment")]
-        public static extern long CGAnyEnvironment();
+        [DllImport(libName, EntryPoint = "ganyImport")]
+        public static extern long CGAnyImport(string path);
+        
+        [DllImport(libName, EntryPoint = "ganyExport")]
+        public static extern void CGAnyExport(long clazz);
 
 
         [DllImport(libName, EntryPoint = "ganyClone")]

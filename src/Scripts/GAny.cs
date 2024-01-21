@@ -74,19 +74,18 @@ namespace Gx
             GAnyNative.CGAnyDestroy(_nativePtr);
         }
 
-        public static GAny Env()
+        public static GAny Import(string path)
         {
             GAny any = new GAny
             {
-                _nativePtr = GAnyNative.CGAnyEnvironment()
+                _nativePtr = GAnyNative.CGAnyImport(path)
             };
             return any;
         }
 
-        public static GAny Env(string packPath)
+        public static void Export(GAny clazz)
         {
-            GAny env = Env();
-            return env.GetItem(packPath);
+            GAnyNative.CGAnyExport(clazz._nativePtr);
         }
 
         public static GAny Create(object v)

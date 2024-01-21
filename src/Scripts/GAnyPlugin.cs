@@ -38,9 +38,7 @@ namespace Gx
             
             GAnyNative.Instance.Init();
 
-            var gEnv = GAny.Env();
-
-            var setPluginSearchPathFn = gEnv.GetItem("setPluginSearchPath");
+            var setPluginSearchPathFn = GAny.Import("setPluginSearchPath");
             string pluginDir = GetPluginDir();
 
             if (!setPluginSearchPathFn.IsFunction())
@@ -93,7 +91,7 @@ namespace Gx
             {
                 return false;
             }
-            var loadPlugin = GAny.Env().GetItem("loadPlugin");
+            var loadPlugin = GAny.Import("loadPlugin");
             if (!loadPlugin.IsFunction())
             {
                 Debug.LogError("Get function loadPlugin failure.");
@@ -109,7 +107,7 @@ namespace Gx
             {
                 return false;
             }
-            var loadPlugin = GAny.Env().GetItem("loadPlugin");
+            var loadPlugin = GAny.Import("loadPlugin");
             if (!loadPlugin.IsFunction())
             {
                 Debug.LogError("Get function loadPlugin failure.");
